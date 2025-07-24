@@ -1,0 +1,99 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+
+@layer utilities {
+    @keyframes border-spin {
+        0%   { --border-angle: 0deg; }
+        100% { --border-angle: 360deg; }
+    }
+
+    .animate-border {
+        position: relative;
+        border: 3px solid transparent;
+        border-radius: 1rem;
+        padding: 0;
+        background:
+            /* inner background */
+                linear-gradient(45deg,#080b11 0%, #1e293b 50%, #172033 100%) border-box,
+                    /* rotating border */
+                conic-gradient(
+                        from var(--border-angle),
+                        hsl(215 28% 37% / .5) 0deg 280deg,
+                        #6366f1 280deg 300deg,
+                        #a5b4fc 300deg 315deg,
+                        #6366f1 315deg 335deg,
+                        hsl(215 28% 37% / .5) 335deg 360deg
+                ) border-box;
+        animation: border-spin 6s linear infinite;
+    }
+}
+
+::selection {
+    background: #d95800;
+    color: #eee;
+}
+
+.a {
+    color: #bd4a00;
+    color: #ffb17b;
+    color: #c08153;
+}
+
+body {
+    @apply bg-neutral-900 text-neutral-100;
+}
+
+.cursor-hover-target {
+    cursor: none;
+}
+
+
+@layer components {
+    .title {
+        @apply text-4xl lg:text-6xl text-white font-bold leading-[80px] tracking-wide
+    }
+}
+
+/* Markdown Styles  */
+.markdown-body table {
+    border-collapse: collapse;
+    width: 100%;
+}
+.markdown-body th,
+.markdown-body td {
+    border: 1px solid #444;
+    padding: 0.75rem;
+    text-align: left;
+}
+.markdown-body thead {
+    background-color: #222;
+    color: #fff;
+}
+.markdown-body tbody tr:nth-child(even) {
+    background-color: #1a1a1a;
+}
+
+.markdown-body ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.markdown-body li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.markdown-body li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: #ea6000;
+    font-weight: bold;
+}
+
+
+.a {
+}
+
